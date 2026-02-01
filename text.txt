@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>For Wafa ❤️</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      background: linear-gradient(135deg, #ff4d6d, #ff758f);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Arial', sans-serif;
+      overflow: hidden;
+      color: white;
+    }
+
+    .card {
+      text-align: center;
+      background: rgba(0,0,0,0.25);
+      padding: 30px;
+      border-radius: 20px;
+      width: 90%;
+      max-width: 400px;
+    }
+
+    h1 {
+      font-size: 26px;
+      margin-bottom: 30px;
+    }
+
+    .buttons {
+      position: relative;
+      height: 120px;
+    }
+
+    button {
+      font-size: 18px;
+      padding: 12px 24px;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+    }
+
+    #yesBtn {
+      background: #00ffcc;
+      color: #000;
+    }
+
+    #noBtn {
+      position: absolute;
+      background: #ffcccc;
+      color: #000;
+      left: 50%;
+      top: 60%;
+      transform: translate(-50%, -50%);
+    }
+
+    .hidden {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card" id="stage1">
+    <h1>Wafa, will you be my Valentine? 💖</h1>
+    <div class="buttons">
+      <button id="yesBtn">Yes 😌</button>
+      <button id="noBtn">No 🙄</button>
+    </div>
+  </div>
+
+  <div class="card hidden" id="stage2">
+    <h1>Good choice 😏❤️</h1>
+    <p style="font-size:18px;">
+      You just made my heart do backflips.<br><br>
+      Congratulations, you’re officially stuck with me.<br>
+      Valentine’s Day? That’s ours now.
+    </p>
+  </div>
+
+  <script>
+    const noBtn = document.getElementById("noBtn");
+    const yesBtn = document.getElementById("yesBtn");
+    const stage1 = document.getElementById("stage1");
+    const stage2 = document.getElementById("stage2");
+
+    function moveButton() {
+      const x = Math.random() * (window.innerWidth - 100);
+      const y = Math.random() * (window.innerHeight - 100);
+      noBtn.style.left = x + "px";
+      noBtn.style.top = y + "px";
+    }
+
+    noBtn.addEventListener("mouseover", moveButton);
+    noBtn.addEventListener("touchstart", moveButton);
+
+    yesBtn.addEventListener("click", () => {
+      stage1.classList.add("hidden");
+      stage2.classList.remove("hidden");
+    });
+  </script>
+
+</body>
+</html>
